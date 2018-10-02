@@ -1,4 +1,6 @@
 class DeckSerializer < ActiveModel::Serializer
-    attributes :id
-    has_many :cards
+    attributes :id, :active
+
+    belongs_to :card
 end
+

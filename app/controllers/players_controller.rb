@@ -12,6 +12,7 @@ class PlayersController < ApplicationController
     def update
         @player = Player.find(params[:id])
         @player.update(player_params)
+        puts @player.match.id
         broadcast_to_match(@player.match)
         render json: {status: 200}
     end

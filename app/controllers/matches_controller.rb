@@ -7,7 +7,7 @@ class MatchesController < ApplicationController
 
     def show
         @match = Match.find(params[:id])
-        render json: @match
+        render json: @match, include: "**"
     end
 
     def create
@@ -27,9 +27,16 @@ class MatchesController < ApplicationController
         @match.destroy
     end
 
+    #-------Custom Route-------#
+
+    def decks
+        @decks = Match.find(params[:id]).decks
+        render json: @decks, include: "**"
+    end
+
     private
 
     def match_params
-        params.permit(:seats)
+        params.permit(:seats, :phase, :turnId, :action, :targetId, :challengerId, :challengedId, :completed)
     end
 end

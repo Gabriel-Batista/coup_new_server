@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_02_150408) do
+ActiveRecord::Schema.define(version: 2018_10_02_184115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2018_10_02_150408) do
     t.integer "card_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "active", default: true
   end
 
   create_table "hands", force: :cascade do |t|
@@ -40,16 +41,16 @@ ActiveRecord::Schema.define(version: 2018_10_02_150408) do
   end
 
   create_table "matches", force: :cascade do |t|
-    t.integer "seats", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "completed", default: false
-    t.string "phase", default: "Declare"
+    t.string "phase", default: "take action"
     t.string "action"
     t.integer "targetId"
     t.integer "challengerId"
     t.integer "challengedId"
     t.integer "turnId"
+    t.integer "seats", default: 1
   end
 
   create_table "players", force: :cascade do |t|

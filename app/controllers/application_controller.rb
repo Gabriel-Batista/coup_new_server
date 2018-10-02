@@ -4,6 +4,5 @@ class ApplicationController < ActionController::API
             MatchSerializer.new(match)
         ).serializable_hash
         ActionCable.server.broadcast "match#{match.id}", serialized_data
-        puts "yupp"
     end
 end

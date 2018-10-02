@@ -1,7 +1,7 @@
 class DecksController < ApplicationController
     def show
         @deck = Deck.find(params[:id])
-        render json: @deck
+        render json: @deck, include: "**"
     end
 
     def update

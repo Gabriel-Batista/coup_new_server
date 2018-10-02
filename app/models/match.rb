@@ -10,21 +10,13 @@ class Match < ApplicationRecord
     private
 
     def initialize_match
-        self.cards.create(name: "Captain", ability: "Steal", block: "Steal", desc: "Choose a player, then steal 2 coins from them")
-        self.cards.create(name: "Duke", ability: "Steal", block: "Steal", desc: "Choose a player, then steal 2 coins from them")
-        self.cards.create(name: "Contessa", ability: "Steal", block: "Steal", desc: "Choose a player, then steal 2 coins from them")
-        self.cards.create(name: "Assassin", ability: "Steal", block: "Steal", desc: "Choose a player, then steal 2 coins from them")
-        self.cards.create(name: "Ambassador", ability: "Steal", block: "Steal", desc: "Choose a player, then steal 2 coins from them")
-        self.cards.create(name: "Captain", ability: "Steal", block: "Steal", desc: "Choose a player, then steal 2 coins from them")
-        self.cards.create(name: "Duke", ability: "Steal", block: "Steal", desc: "Choose a player, then steal 2 coins from them")
-        self.cards.create(name: "Contessa", ability: "Steal", block: "Steal", desc: "Choose a player, then steal 2 coins from them")
-        self.cards.create(name: "Assassin", ability: "Steal", block: "Steal", desc: "Choose a player, then steal 2 coins from them")
-        self.cards.create(name: "Ambassador", ability: "Steal", block: "Steal", desc: "Choose a player, then steal 2 coins from them")
-        self.cards.create(name: "Captain", ability: "Steal", block: "Steal", desc: "Choose a player, then steal 2 coins from them")
-        self.cards.create(name: "Duke", ability: "Steal", block: "Steal", desc: "Choose a player, then steal 2 coins from them")
-        self.cards.create(name: "Contessa", ability: "Steal", block: "Steal", desc: "Choose a player, then steal 2 coins from them")
-        self.cards.create(name: "Assassin", ability: "Steal", block: "Steal", desc: "Choose a player, then steal 2 coins from them")
-        self.cards.create(name: "Ambassador", ability: "Steal", block: "Steal", desc: "Choose a player, then steal 2 coins from them")
+        3.times do
+            self.decks.create(match_id: self.id, card_id: 1)
+            self.decks.create(match_id: self.id, card_id: 2)
+            self.decks.create(match_id: self.id, card_id: 3)
+            self.decks.create(match_id: self.id, card_id: 4)
+            self.decks.create(match_id: self.id, card_id: 5)
+        end
     end
 
     def destroy_associations
