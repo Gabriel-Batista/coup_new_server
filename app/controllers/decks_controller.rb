@@ -1,4 +1,4 @@
-class DeckController < ApplicationController
+class DecksController < ApplicationController
     def show
         @deck = Deck.find(params[:id])
         render json: @deck
@@ -7,6 +7,8 @@ class DeckController < ApplicationController
     def update
         @deck = Deck.find(params[:id])
         @deck.update(deck_params)
+        broadcast_to_match(@deck.match)
+        render json: {status: 200}
     end
 
     private

@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
     def index
         @users = User.all
         render json: @users
@@ -10,8 +10,8 @@ class UserController < ApplicationController
     end
 
     def create
-        @new_user = User.new(username: user_params)
-        if @user.save
+        @new_user = User.new(user_params)
+        if @new_user.save
             render json: @new_user
         else
             render json: {error: "Username already exists."}
@@ -36,15 +36,15 @@ class UserController < ApplicationController
     def join_game
         begin
             @matches = Match.where("seats < 4")
-            @user = User.find(params[:id])
-            if @matches.empty? && @user.in_match === nil
+            @user = User.find(params[:user_id])
+            if @matches.empty? && @user.in_match === false
                 @match = Match.create()
-                @match.players.create(user_id: params[:id])
+                @match.players.create(user_id: params[:user_id])
                 @user.update(in_match: true)
                 render json: @match
-            elsif @user.in_match === nil
+            elsif @user.in_match === false
                 @match = @matches.all.first
-                @match.players.create(user_id: params[:id])
+                @match.players.create(user_id: params[:user_id])
                 @match.update(seats: @match.seats + 1)
                 @user.update(in_match: true)
                 render json: @match

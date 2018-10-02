@@ -1,4 +1,4 @@
-class HandController < ApplicationController
+class HandsController < ApplicationController
     def show
         @hand = Hand.find(params[:id])
         render json: @hand
@@ -7,7 +7,8 @@ class HandController < ApplicationController
     def update
         @hand = Hand.find(params[:id])
         @hand.update(hand_params)
-        render json: @hand
+        broadcast_to_match(@hand.deck.match)
+        render json: {status: 200}
     end
 
     private
