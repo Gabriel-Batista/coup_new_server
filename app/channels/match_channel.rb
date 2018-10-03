@@ -3,6 +3,7 @@ class MatchChannel < ApplicationCable::Channel
     def subscribed
         match = Match.find(params[:id])
         stream_from "match#{params[:id]}"
+        puts "match#{params[:id]}"
     end
 
     def unsubscribed
