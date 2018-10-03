@@ -41,7 +41,7 @@ class UsersController < ApplicationController
                 @match = Match.create()
                 @match.players.create(user_id: params[:user_id])
                 @user.update(in_match: true)
-                render json: @match, include: "**"
+                render json: @match
             elsif @user.in_match === false
                 @match = @matches.all.first
                 @match.players.create(user_id: params[:user_id])
