@@ -10,8 +10,9 @@ class Player < ApplicationRecord
 
     def deal
         2.times do
-            @deck_id = self.match.decks.where("active = true").sample.id
-            self.hands.create(deck_id: @deck_id, active: true)
+            @deck_draw = self.match.decks.where("active = true").sample
+            @deck_draw.update(active: false)
+            @new_hand = self.hands.create(deck_id: @deck_draw.id, active: true)
         end
     end
 
