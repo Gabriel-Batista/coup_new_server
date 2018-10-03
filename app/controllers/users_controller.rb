@@ -38,7 +38,7 @@ class UsersController < ApplicationController
             @matches = Match.where("seats < 4")
             @user = User.find(params[:user_id])
             if @matches.empty? && @user.in_match === false
-                @match = Match.create(turnId: @user.players.last.id)
+                @match = Match.create()
                 @match.players.create(user_id: params[:user_id])
                 @user.update(in_match: true)
                 render json: @match
