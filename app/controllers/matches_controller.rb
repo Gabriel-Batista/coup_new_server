@@ -7,7 +7,7 @@ class MatchesController < ApplicationController
 
     def show
         @match = Match.find(params[:id])
-        render json: @match, include: "**"
+        render json: @match
     end
 
     def create
@@ -40,3 +40,4 @@ class MatchesController < ApplicationController
         params.permit(:seats, :phase, :turnId, :action, :targetId, :challengerId, :challengedId, :completed)
     end
 end
+

@@ -47,7 +47,8 @@ class UsersController < ApplicationController
                 @match.players.create(user_id: params[:user_id])
                 @match.update(seats: @match.seats + 1)
                 @user.update(in_match: true)
-                render json: @match, include: "**"
+                broadcast_to_match(@match)
+                render json: @match
             else
                 render json: {error: "User is already in a match"}, status: 400
             end
