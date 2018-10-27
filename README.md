@@ -1,24 +1,41 @@
-# README
+# Coup-backend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Play a web app rendition of this award winning board game, online with friends from around the world!
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+1. Clone or download the project to your computer.
+2. Open your terminal and type `bundle install` to download the dependencies.
+3. type `rails start` to start the server.
 
-* System dependencies
+To run frontend web app check link below:
 
-* Configuration
+[Coup](https://github.com/amiratak88/coup-front-end)
 
-* Database creation
+##Prerequisites
 
-* Database initialization
+Ruby on Rails 5.2
 
-* How to run the test suite
+## Built With
 
-* Services (job queues, cache servers, search engines, etc.)
+* [Ruby on Rails](https://rubyonrails.org/) - The server framework used
+* [Action Cables](https://github.com/rails/rails/tree/master/actioncable) - Web sockets
+* [Postgresql](https://www.postgresql.org/) - Database
 
-* Deployment instructions
+## Contributing
 
-* ...
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Authors
+
+* **Gabriel Batista** - *Initial work* - [Gabriel-Batista](https://github.com/Gabriel-Batista)
+* **Amirata** - [amiratak88](https://github.com/amiratak88)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* (Inspiration) https://www.pixilart.com/draw
+* (Inspiration) https://make8bitart.com/
