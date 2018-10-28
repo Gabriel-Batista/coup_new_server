@@ -12,7 +12,7 @@ To run frontend web app check link below:
 
 [Coup](https://github.com/amiratak88/coup-front-end)
 
-##Prerequisites
+##  Prerequisites
 
 Ruby on Rails 5.2
 
